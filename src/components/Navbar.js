@@ -24,7 +24,7 @@ export default function Navbar (){
                                     </div>
                                     <a className="logo">VerveIN</a>
                                     <div className="nav-logo">
-                                        <a>
+                                        <a href="#">
                                             <img loading="lazy" src="/images/vervein.png" alt="vervein" />
                                         </a>
                                     </div>
