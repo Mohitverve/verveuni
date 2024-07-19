@@ -8,7 +8,7 @@ import '../styles/info.css';
 
 export default function Info() {
   const [name, setName] = useState('');
-  const [interest, setInterest] = useState('');
+ 
   const [interestLevel, setInterestLevel] = useState('');
   const navigate = useNavigate();
 
@@ -22,7 +22,7 @@ export default function Info() {
           
           interestLevel,
         });
-        console.log('Additional information stored in Firestore');
+       
         navigate('/Home');
       } catch (error) {
         console.error('Error updating user document:', error);

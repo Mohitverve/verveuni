@@ -1,14 +1,10 @@
-import React from 'react';
-import { useState } from 'react';
-import { useEffect } from 'react';
-import '../styles/verve.css';
+import React, { useState, useEffect } from 'react';
 import { Link, Navigate } from 'react-router-dom';
-import { signOut, onAuthStateChanged  } from 'firebase/auth';
+import { signOut, onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../components/firebase';
+import '../styles/verve.css';
 
-
-
-export default function Home () {
+export default function Home() {
     const [isNavOpen, setIsNavOpen] = useState(false);
     const [currentSlide, setCurrentSlide] = useState(0);
     const [isAuthenticated, setIsAuthenticated] = useState(null);
@@ -16,6 +12,7 @@ export default function Home () {
     const toggleNav = () => {
         setIsNavOpen(!isNavOpen);
     };
+
     const carouselImages = [
         "/images/s4.jpg",
         "/images/s1.jpg",
@@ -72,25 +69,24 @@ export default function Home () {
 
     const logout = () => {
         signOut(auth).then(() => {
-          console.log('User signed out');
-          window.location.href = '/Register';
+            window.location.href = '/Register';
         }).catch((error) => {
-          console.error('Error signing out:', error);
+            console.error('Error signing out:', error);
         });
-      };
-      
-      useEffect(() => {
+    };
+
+    useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
-          setIsAuthenticated(!!user);
+            setIsAuthenticated(!!user);
         });
-    
+
         return () => unsubscribe();
-      }, []);
-    
-      if (isAuthenticated === false) {
+    }, []);
+
+    if (isAuthenticated === false) {
         return <Navigate to="/Register" />;
-      }
-   
+    }
+
     return (
         <div>
             <section className="hero hidden">
@@ -117,7 +113,7 @@ export default function Home () {
                                     <a className="logo">VerveIN</a>
                                     <div className="nav-logo">
                                         <a href="#logo">
-                                        <img loading="lazy" src="/images/vervein.png" alt="vervein" />
+                                            <img loading="lazy" src="/images/vervein.png" alt="VerveIN" />
                                         </a>
                                     </div>
                                     <div className={`nav-links ${isNavOpen ? 'open' : ''}`}>
@@ -128,7 +124,6 @@ export default function Home () {
                                             <li><Link to="/Book">Book session</Link></li>
                                             <li><Link to="#FAQ">FAQs</Link></li>
                                             <li><Link to="#contact">Contact us</Link></li>
-                                           
                                         </ul>
                                     </div>
                                     <div className="nav-search">
@@ -155,7 +150,7 @@ export default function Home () {
                                     A new revolution for <span>Education</span> with <span>VR</span>
                                 </p>
                                 <div className="button-row">
-                                    <a href="#show-interest" className="button black-btn">Show Interest</a>
+                                    <a href="#show" className="button black-btn">Show Interest</a>
                                 </div>
                             </div>
                             <div className="hero-right">
@@ -183,7 +178,7 @@ export default function Home () {
                 <div className="container">
                     <div className="row">
                         <div className="about-left">
-                            <img className="img" loading="lazy" src="/images/3.jpg" alt="" width="100%" />
+                            <img className="img" loading="lazy" src="/images/3.jpg" alt="About Us" width="100%" />
                         </div>
                         <div className="about-right">
                             <h2>About Us</h2>
@@ -214,7 +209,7 @@ export default function Home () {
                 <h1>Our Services</h1>
                 <div className="portfolio-cards">
                     <div className="portfolio-card">
-                        <img loading="lazy" src="/images/VRlibrary.jpeg" alt="" />
+                        <img loading="lazy" src="/images/VRlibrary.jpeg" alt="Book VR sessions" />
                         <div className="overlay">
                             <a href="#book">
                                 <h3>Book VR sessions</h3>
@@ -225,7 +220,7 @@ export default function Home () {
                         </div>
                     </div>
                     <div className="portfolio-card">
-                        <img loading="lazy" src="/images/vr headset.png" alt="" />
+                        <img loading="lazy" src="/images/vr headset.png" alt="Providing content library" />
                         <div className="overlay">
                             <h3>Providing content library</h3>
                             <p>
@@ -234,7 +229,7 @@ export default function Home () {
                         </div>
                     </div>
                     <div className="portfolio-card">
-                        <img loading="lazy" src="/images/VR tools.png" alt="" />
+                        <img loading="lazy" src="/images/VR tools.png" alt="Setting up Tech" />
                         <div className="overlay">
                             <h3>Setting up Tech</h3>
                             <p>
@@ -273,7 +268,6 @@ export default function Home () {
                         <h3 className="step-title">VR Headset & Assortment of Content Provided</h3>
                     </div>
                 </div>
-
             </div>
 
             <div className="faq-container hidden" id="FAQ">
@@ -309,7 +303,7 @@ export default function Home () {
                     <p>Have questions or want to get in touch? Fill out the form below:</p>
                     <div className="contact-details">
                         <div className="detail">
-                            <a href="tel:9315941574">
+                            <a href="tel:9315941574" aria-label="Phone Number">
                                 <i className="fas fa-phone-alt"></i>
                             </a>
                             <div>
@@ -318,7 +312,7 @@ export default function Home () {
                             </div>
                         </div>
                         <div className="detail">
-                            <a href="mailto:support@verveuni.com">
+                            <a href="mailto:support@verveuni.com" aria-label="Email Address">
                                 <i className="fas fa-envelope"></i>
                             </a>
                             <div>
@@ -330,10 +324,10 @@ export default function Home () {
                 </div>
                 <div className="contact-form">
                     <form>
-                        <input type="text" placeholder="Your Name" />
-                        <input type="email" placeholder="Your Email" />
-                        <input type="text" placeholder="Your Phone" />
-                        <textarea placeholder="Your Message"></textarea>
+                        <input type="text" placeholder="Your Name" aria-label="Your Name" />
+                        <input type="email" placeholder="Your Email" aria-label="Your Email" />
+                        <input type="text" placeholder="Your Phone" aria-label="Your Phone" />
+                        <textarea placeholder="Your Message" aria-label="Your Message"></textarea>
                         <button type="submit">Send Message</button>
                     </form>
                 </div>
@@ -345,14 +339,13 @@ export default function Home () {
                     <div className="links">
                         <div>
                             <h2 style={{ fontWeight: 'bold' }}>Explore Platform</h2>
-                            <a href="#about" >About us</a>
-                            <a href="#contact" >Contact us</a>
+                            <a href="#about-us">About us</a>
+                            <a href="#contact">Contact us</a>
                         </div>
                         <div>
                             <h2 style={{ fontWeight: 'bold' }}>Features</h2>
                             <a href="#show">Show Interest</a>
                             <a href="#book">Book Session</a>
-
                         </div>
                     </div>
                 </footer>
@@ -361,13 +354,13 @@ export default function Home () {
                         <span>© 2023 All rights reserved</span>
                     </div>
                     <div className="links">
-                        <a href="https://www.instagram.com/verveinnovations?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="  className="fa-brands fa-instagram"></a>
-                        <a href="https://www.linkedin.com/company/vervein/?viewAsMember=true"  className="fa-brands fa-linkedin"></a>
-                        <a href="https://x.com/verveinnovate" className="fa-brands fa-twitter"></a>
-                        <a href="https://www.youtube.com/@Verveinnovations" className="fa-brands fa-youtube"></a>
+                        <a href="https://www.instagram.com/verveinnovations" className="fa-brands fa-instagram" aria-label="Instagram"></a>
+                        <a href="https://www.linkedin.com/company/vervein" className="fa-brands fa-linkedin" aria-label="LinkedIn"></a>
+                        <a href="https://x.com/verveinnovate" className="fa-brands fa-twitter" aria-label="Twitter"></a>
+                        <a href="https://www.youtube.com/@Verveinnovations" className="fa-brands fa-youtube" aria-label="YouTube"></a>
                     </div>
                 </footer>
             </section>
         </div>
-    )
+    );
 }

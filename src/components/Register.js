@@ -23,7 +23,6 @@ export default function Register() {
         email: user.email,
       });
 
-      console.log('User stored in Firestore');
       navigate('/Info');
     } catch (error) {
       console.error('Error signing in with Google:', error);
