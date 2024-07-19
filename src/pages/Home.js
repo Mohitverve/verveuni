@@ -114,9 +114,9 @@ export default function Home () {
                                         <div className={`bar ${isNavOpen ? 'open' : ''}`}></div>
                                         <div className={`bar ${isNavOpen ? 'open' : ''}`}></div>
                                     </div>
-                                    <a href="#" className="logo">VerveIN</a>
+                                    <a className="logo">VerveIN</a>
                                     <div className="nav-logo">
-                                        <a href="#">
+                                        <a >
                                         <img loading="lazy" src="/images/vervein.png" alt="vervein" />
                                         </a>
                                     </div>
@@ -194,7 +194,7 @@ export default function Home () {
                             <span>
                                 With our user-friendly website, you can easily schedule VR simulation sessions for captivating science experiments, engaging historical and cultural lessons, interactive mathematics, language learning adventures, insightful career explorations, and collaborative projects. Simply book an appointment, and our expert VR simulation team, working hand-in-hand with your teachers, will transport your students into a world of knowledge and discovery. It's not just a service; it's an educational journey that transcends traditional boundaries. Let Verve redefine the way your students learn, one immersive experience at a time.
                             </span>
-                            <a href="blog.html" className="button black-btn">Explore</a>
+                            <a  className="button black-btn">Explore</a>
                         </div>
                     </div>
                 </div>
@@ -216,7 +216,7 @@ export default function Home () {
                     <div className="portfolio-card">
                         <img loading="lazy" src="/images/VRlibrary.jpeg" alt="" />
                         <div className="overlay">
-                            <a href="book.html">
+                            <a>
                                 <h3>Book VR sessions</h3>
                             </a>
                             <p>
@@ -345,13 +345,13 @@ export default function Home () {
                     <div className="links">
                         <div>
                             <h2 style={{ fontWeight: 'bold' }}>Explore Platform</h2>
-                            <a href="#about-us">About us</a>
-                            <a href="#contact">Contact us</a>
+                            <a >About us</a>
+                            <a >Contact us</a>
                         </div>
                         <div>
                             <h2 style={{ fontWeight: 'bold' }}>Features</h2>
-                            <a href="intrest.html" >Show Interest</a>
-                            <a href="intrest.html" >Book Session</a>
+                            <a  >Show Interest</a>
+                            <a>Book Session</a>
 
                         </div>
                     </div>
@@ -364,7 +364,7 @@ export default function Home () {
                         <a href="https://www.instagram.com/verveinnovations?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="  className="fa-brands fa-instagram"></a>
                         <a href="https://www.linkedin.com/company/vervein/?viewAsMember=true"  className="fa-brands fa-linkedin"></a>
                         <a href="https://x.com/verveinnovate" className="fa-brands fa-twitter"></a>
-                        <a href="#" className="fa-brands fa-youtube"></a>
+                        <a href="https://www.youtube.com/@Verveinnovations" className="fa-brands fa-youtube"></a>
                     </div>
                 </footer>
             </section>

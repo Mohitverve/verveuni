@@ -22,9 +22,9 @@ export default function Navbar (){
                                         <div className={`bar ${isNavOpen ? 'open' : ''}`}></div>
                                         <div className={`bar ${isNavOpen ? 'open' : ''}`}></div>
                                     </div>
-                                    <a href="#" className="logo">VerveIN</a>
+                                    <a className="logo">VerveIN</a>
                                     <div className="nav-logo">
-                                        <a href="#">
+                                        <a>
                                             <img loading="lazy" src="/images/vervein.png" alt="vervein" />
                                         </a>
                                     </div>
