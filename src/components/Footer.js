@@ -14,8 +14,8 @@ export default function Footer (){
                 </div>
                 <div>
                     <h2 style={{ fontWeight: 'bold' }}>Features</h2>
-                    <a href="intrest.html" target="_blank">Show Interest</a>
-                    <a href="intrest.html" target="_blank">Book Session</a>
+                    <a href="intrest.html" >Show Interest</a>
+                    <a href="intrest.html" >Book Session</a>
 
                 </div>
             </div>
@@ -25,9 +25,9 @@ export default function Footer (){
                 <span>© 2023 All rights reserved</span>
             </div>
             <div className="links">
-                <a href="https://www.instagram.com/verveinnovations?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" className="fa-brands fa-instagram"></a>
-                <a href="https://www.linkedin.com/company/vervein/?viewAsMember=true" target="_blank" className="fa-brands fa-linkedin"></a>
-                <a href="https://x.com/verveinnovate" target="_blank" className="fa-brands fa-twitter"></a>
+                <a href="https://www.instagram.com/verveinnovations?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="  className="fa-brands fa-instagram"></a>
+                <a href="https://www.linkedin.com/company/vervein/?viewAsMember=true"  className="fa-brands fa-linkedin"></a>
+                <a href="https://x.com/verveinnovate"  className="fa-brands fa-twitter"></a>
                 <a href="#" className="fa-brands fa-youtube"></a>
             </div>
         </footer>
