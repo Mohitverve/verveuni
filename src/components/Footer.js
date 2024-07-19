@@ -9,13 +9,13 @@ export default function Footer() {
                 <div className="links">
                     <div>
                         <h2 style={{ fontWeight: 'bold' }}>Explore Platform</h2>
-                        <a href="#" onClick={(e) => e.preventDefault()}>About us</a>
-                        <a href="#" onClick={(e) => e.preventDefault()}>Contact us</a>
+                        <a href="#about" onClick={(e) => e.preventDefault()}>About us</a>
+                        <a href="#contact" onClick={(e) => e.preventDefault()}>Contact us</a>
                     </div>
                     <div>
                         <h2 style={{ fontWeight: 'bold' }}>Features</h2>
-                        <a href="#" onClick={(e) => e.preventDefault()}>Show Interest</a>
-                        <a href="#" onClick={(e) => e.preventDefault()}>Book Session</a>
+                        <a href="#show" onClick={(e) => e.preventDefault()}>Show Interest</a>
+                        <a href="#book" onClick={(e) => e.preventDefault()}>Book Session</a>
                     </div>
                 </div>
             </footer>
