@@ -1,54 +1,43 @@
 import React from 'react';
 import { GoogleAuthProvider, GithubAuthProvider, signInWithPopup } from 'firebase/auth';
 import { auth, db } from './firebase';
-import { doc, setDoc } from 'firebase/firestore';
+import { doc, setDoc, getDoc } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faGithub } from '@fortawesome/free-brands-svg-icons';
-import  '../styles/register.css';
+import '../styles/register.css';
 
 export default function Register() {
   const navigate = useNavigate();
 
-  async function googleLogin() {
-    const provider = new GoogleAuthProvider();
+  async function handleLogin(provider) {
     try {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
+      const userDocRef = doc(db, 'users', user.uid);
+      const userDoc = await getDoc(userDocRef);
 
-      // Store user data in Firestore
-      await setDoc(doc(db, 'users', user.uid), {
-        uid: user.uid,
-        name: user.displayName,
-        email: user.email,
-      });
+      if (!userDoc.exists()) {
+        await setDoc(userDocRef, {
+          uid: user.uid,
+          name: user.displayName,
+          email: user.email,
+          additionalInfoCompleted: false
+        });
+      }
 
-      navigate('/Info');
+      if (userDoc.exists() && userDoc.data().additionalInfoCompleted) {
+        navigate('/Home');
+      } else {
+        navigate('/Info');
+      }
     } catch (error) {
-      console.error('Error signing in with Google:', error);
+      console.error('Error signing in:', error);
     }
   }
 
-  async function githubLogin() {
-    const provider = new GithubAuthProvider();
-    try {
-      const result = await signInWithPopup(auth, provider);
-      const user = result.user;
-
-      // Store user data in Firestore
-      await setDoc(doc(db, 'users', user.uid), {
-        uid: user.uid,
-        name: user.displayName,
-        email: user.email,
-        profilePicture: user.photoURL
-      });
-
-      console.log('User stored in Firestore');
-      navigate('/Home');
-    } catch (error) {
-      console.error('Error signing in with GitHub:', error);
-    }
-  }
+  const googleLogin = () => handleLogin(new GoogleAuthProvider());
+  const githubLogin = () => handleLogin(new GithubAuthProvider());
 
   return (
     <div className='register'>
