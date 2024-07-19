@@ -1,0 +1,145 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  background-color: #f0f2f5;
+}
+
+.signup-page {
+  display: flex;
+  height: 100vh;
+}
+
+.side-background {
+  flex: 1;
+  background-image: url(/public/images/bgv.jpg);
+  background-color: rgb(25, 25, 25);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  text-align: center;
+}
+
+.side-background h1, .side-background h2 {
+  margin: 0;
+  padding: 0;
+}
+
+.side-background h1 {
+  font-size: 45px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.side-background h2 {
+  font-size: 20px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.signup-card {
+  flex: 0 0 400px; /* Set a fixed width */
+  height: 500px; /* Set a fixed height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+  backdrop-filter: blur(10px); /* Glassmorphism effect */
+  border-radius: 20px;
+  padding: 40px;
+  margin: 20px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  position: relative; /* To position background image within card */
+  overflow: hidden; /* To prevent overflow of background image */
+}
+
+.signup-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url(/public/images/signup.avif);
+  background-size: cover;
+  background-position: center;
+  opacity: 0.5; /* Adjust opacity for better readability */
+  z-index: -1; /* Ensure the background image is behind the content */
+}
+
+.signup-card img {
+  max-width: 150px;
+  height: auto;
+  margin-bottom: 20px;
+  z-index: 1; /* Ensure logo is above the background image */
+}
+
+.signup-card h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #000000;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  z-index: 1; /* Ensure text is above the background image */
+}
+
+.auth-buttons, .github-buttons {
+  margin: 10px 0;
+  z-index: 1; /* Ensure buttons are above the background image */
+}
+
+.signup-card button {
+  width: 250px;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.auth-buttons button {
+  background-color: #4285F4;
+  color: white;
+}
+
+.github-buttons button {
+  background-color: #333;
+  color: white;
+}
+
+.auth-buttons svg, .github-buttons svg {
+  margin-right: 10px;
+}
+
+.auth-buttons:hover, .github-buttons:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .signup-page {
+    flex-direction: column;
+  }
+
+  .signup-card {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .signup-card h1 {
+    font-size: 1.5rem;
+  }
+
+  .auth-buttons button, .github-buttons button {
+    width: 200px;
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+}
