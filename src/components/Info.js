@@ -1,5 +1,3 @@
-// src/components/AdditionalInfo.js
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { auth, db } from './firebase';
@@ -8,7 +6,6 @@ import '../styles/info.css';
 
 export default function Info() {
   const [name, setName] = useState('');
- 
   const [interestLevel, setInterestLevel] = useState('');
   const navigate = useNavigate();
 
@@ -19,10 +16,10 @@ export default function Info() {
       try {
         await updateDoc(doc(db, 'users', user.uid), {
           name,
-          
           interestLevel,
+          additionalInfoCompleted: true
         });
-       
+
         navigate('/Home');
       } catch (error) {
         console.error('Error updating user document:', error);
@@ -34,7 +31,6 @@ export default function Info() {
     <div className="additional-info-page">
       <h1>Are you interested in learning with VR?</h1>
       <form onSubmit={handleSubmit} className="additional-info-form">
-        
         <label>
           <h1>Tell us about it</h1>
           <input
@@ -45,13 +41,9 @@ export default function Info() {
             required
           />
         </label>
-       
         <label>
-        
           <select
-         
             value={interestLevel}
-           
             onChange={(e) => setInterestLevel(e.target.value)}
             required
           >
