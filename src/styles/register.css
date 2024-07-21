@@ -105,8 +105,8 @@ body {
 }
 
 .auth-buttons button {
-  background-color: #4285F4;
-  color: white;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
 }
 
 .github-buttons button {
