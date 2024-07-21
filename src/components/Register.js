@@ -3,8 +3,11 @@ import { GoogleAuthProvider, GithubAuthProvider, signInWithPopup } from 'firebas
 import { auth, db } from './firebase';
 import { doc, setDoc, getDoc } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGoogle, faGithub } from '@fortawesome/free-brands-svg-icons';
+import GitHubIcon from '@mui/icons-material/GitHub';
+
+
+import GoogleIcon from '@mui/icons-material/Google';
+
 import '../styles/register.css';
 
 export default function Register() {
@@ -51,12 +54,12 @@ export default function Register() {
           <h1>Sign Up</h1>
           <div onClick={googleLogin} className="auth-buttons">
             <button>
-              <FontAwesomeIcon icon={faGoogle} /> Sign in with Google
+              <GoogleIcon icon={GoogleIcon} /> Sign in with Google
             </button>
           </div>
           <div onClick={githubLogin} className="github-buttons">
             <button>
-              <FontAwesomeIcon icon={faGithub} /> Sign in with GitHub
+              <GitHubIcon icon={GitHubIcon} /> Sign in with GitHub
             </button>
           </div>
         </div>

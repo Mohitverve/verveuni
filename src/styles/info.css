@@ -31,21 +31,7 @@
 }
 
 
-.additional-info-form label {
-    display: block;
-    margin-bottom: 10px;
-    color: #fff;
-    text-align: left;
-}
 
-.additional-info-form input,
-.additional-info-form select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
 
 .additional-info-form button {
     width: 100%;

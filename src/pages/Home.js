@@ -83,9 +83,13 @@ export default function Home() {
         return () => unsubscribe();
     }, []);
 
+ 
+
     if (isAuthenticated === false) {
         return <Navigate to="/Register" />;
     }
+
+    
 
     return (
         <div>
@@ -123,7 +127,7 @@ export default function Home() {
                                             <li><Link to="#portfolio-loc">Services</Link></li>
                                             <li><Link to="/Book">Book session</Link></li>
                                             <li><Link to="#FAQ">FAQs</Link></li>
-                                            <li><Link to="#contact">Contact us</Link></li>
+                                            <li><Link to="#">Contact us</Link></li>
                                         </ul>
                                     </div>
                                     <div className="nav-search">
