@@ -3,30 +3,24 @@ import '../styles/Book.css';
 import Navbar from '../components/Navbar';
 import Marquee from '../components/Marquee';
 import Footer from '../components/Footer';
+
+import {
+  Button,
+  Cascader,
+  DatePicker,
+  Form,
+  Input,
+  InputNumber,
+  Radio,
+  Select,
+  Switch,
+  TreeSelect,
+} from 'antd';
 const Book = () => {
-  const [formData, setFormData] = useState({
-    organizationName: '',
-    email: '',
-    contact: '',
-    slotDate: '',
-    slotTime: '',
-    topic: '',
-    paymentMethod: ''
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
+  const [componentSize, setComponentSize] = useState('default');
+  const onFormLayoutChange = ({ size }) => {
+    setComponentSize(size);
   };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-  };
-
   return (
     <div>
       <Marquee />
@@ -51,94 +45,105 @@ const Book = () => {
           <p>20 sessions per year</p>
         </div>
       </div>
-      <form className="form" onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="organizationName">Organization Name:</label>
-          <input
-            type="text"
-            id="organizationName"
-            name="organizationName"
-            value={formData.organizationName}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="contact">Contact:</label>
-          <input
-            type="text"
-            id="contact"
-            name="contact"
-            value={formData.contact}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="slotDate">Slot Date:</label>
-          <input
-            type="date"
-            id="slotDate"
-            name="slotDate"
-            value={formData.slotDate}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="slotTime">Slot Time:</label>
-          <input
-            type="time"
-            id="slotTime"
-            name="slotTime"
-            value={formData.slotTime}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="topic">Topic/Subject:</label>
-          <select
-            id="topic"
-            name="topic"
-            value={formData.topic}
-            onChange={handleChange}
-            required
-          >
-            <option value="">Select Topic/Subject</option>
-            <option value="topic1">Topic 1</option>
-            <option value="topic2">Topic 2</option>
-            <option value="topic3">Topic 3</option>
-          </select>
-        </div>
-        <div className="form-group">
-          <label htmlFor="paymentMethod">Payment Method:</label>
-          <select
-            id="paymentMethod"
-            name="paymentMethod"
-            value={formData.paymentMethod}
-            onChange={handleChange}
-            required
-          >
-            <option value="">Select Payment Method</option>
-            <option value="creditCard">Credit Card</option>
-            <option value="debitCard">Debit Card</option>
-            <option value="paypal">PayPal</option>
-          </select>
-        </div>
-        <button type="submit" className='btnsub'>Book Slot</button>
-      </form>
+      <Form
+      labelCol={{
+        span: 4,
+      }}
+      wrapperCol={{
+        span: 14,
+      }}
+      layout="horizontal"
+      initialValues={{
+        size: componentSize,
+      }}
+      onValuesChange={onFormLayoutChange}
+      size={componentSize}
+      style={{
+        maxWidth: 600,
+      }}
+    >
+      <Form.Item label="Form Size" name="size">
+        <Radio.Group>
+          <Radio.Button value="small">Small</Radio.Button>
+          <Radio.Button value="default">Default</Radio.Button>
+          <Radio.Button value="large">Large</Radio.Button>
+        </Radio.Group>
+      </Form.Item>
+      <Form.Item label="School name">
+        
+        <Input />
+      </Form.Item>
+<Form.Item label="Email">
+  <Input />
+</Form.Item>
+
+<Form.Item label="Address">
+  <Input />
+</Form.Item>
+<Form.Item label="Phone no">
+  <Input />
+</Form.Item>
+
+      <Form.Item label="Topic">
+        <Select>
+          <Select.Option value="Science">Science</Select.Option>
+          <Select.Option value="History">History</Select.Option>
+          <Select.Option value="Literature">Literature</Select.Option>
+        </Select>
+      </Form.Item>
+      
+      <Form.Item label="Sub topic">
+        <Cascader
+          options={[
+            {
+              value: 'Science',
+              
+              label: 'Science',
+              children: [
+                {
+                  value: 'Chemistry',
+                  label: 'Chemistry',
+                },
+              ],
+              
+            },
+
+            {
+              value: 'History',
+              
+              label: 'History',
+              children: [
+                {
+                  value: 'Mughal Empire',
+                  label: 'Mughal Empire',
+                },
+              ],
+            },
+
+            {
+              value: 'Literature',
+              
+              label: 'Literature',
+              children: [
+                {
+                  value: 'Stories',
+                  label: 'Stories',
+                },
+              ],
+            },
+          ]}
+        />
+      </Form.Item>
+      <Form.Item label="Date">
+        <DatePicker />
+      </Form.Item>
+     
+     
+      <Form.Item label="Confirm">
+        <Button>Submit</Button>
+      </Form.Item>
+    </Form>
+
     </div>
     <Footer/>
     </div>
