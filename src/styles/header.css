@@ -1,5 +1,5 @@
 
-  .navbar {
+.Header {
    
     background-color: #edecec;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -10,7 +10,8 @@
     max-width: 880px;
     margin: 0 auto;
     padding: 10px 20px;
-    margin-top: 50px;
+  
+   
   }
   
   .nav-logo a img {
@@ -62,25 +63,25 @@
     border-radius: 5px;
     width: 60px;
   }
-  .navbar .navOpenBtn,
-  .navbar .navCloseBtn{
+  .Header .navOpenBtn,
+  .Header .navCloseBtn{
     display:none;
   }
   .logo{
     display:none;
   }
 
-  .navbar .navCloseBtn{
+  .Header .navCloseBtn{
 font-size: 25px;  }
 
   @media screen and (max-width:1200px) {
-    .navbar .navCloseBtn{
+    .Header .navCloseBtn{
       display: block;
     }
   }
 
   @media screen and ( max-width: 768px){
-    .navbar{
+    .Header{
         
     background-color: #edecec;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);

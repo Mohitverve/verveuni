@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Dropdown, Space } from 'antd';
-import '../styles/navbar.css';
+import '../styles/header.css';
 import { Link } from 'react-router-dom';
 import { SmileOutlined, DownOutlined } from '@ant-design/icons';
 import { signOut, onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebase';
 
-const Navbar = () => {
+const Header = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [displayName, setDisplayName] = useState('');
@@ -53,7 +53,7 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="navbar">
+    <div className="Header">
       <div className="hamburger" onClick={toggleNav}>
         <div className={`bar ${isNavOpen ? 'open' : ''}`}></div>
         <div className={`bar ${isNavOpen ? 'open' : ''}`}></div>
@@ -70,13 +70,13 @@ const Navbar = () => {
         <ul>
           <li><Link to="#about-us">About</Link></li>
           <li><Link to="#portfolio-loc">Services</Link></li>
-          <li><Link to="/Home">Home</Link></li>
+          <li><Link to="/Book">Book Sessions</Link></li>
           <li><Link to="#FAQ">FAQs</Link></li>
           <li><Link to="#contact">Contact us</Link></li>
         </ul>
       </div>
       {isAuthenticated && (
-        <Dropdown menu={{ items }}>
+        <Dropdown menu={{ items }} overlayClassName="nav-dropdown">
           <a>
             <Space>
               {displayName}
@@ -89,4 +89,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Header;

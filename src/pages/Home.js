@@ -3,6 +3,8 @@ import { Link, Navigate } from 'react-router-dom';
 import { signOut, onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../components/firebase';
 import '../styles/verve.css';
+import Navbar from '../components/Navbar';
+import Header from '../components/Header';
 
 export default function Home() {
     const [isNavOpen, setIsNavOpen] = useState(false);
@@ -107,37 +109,7 @@ export default function Home() {
                                     </span>
                                 </div>
                             </div>
-                            <nav>
-                                <div className="nav-container">
-                                    <div className="hamburger" onClick={toggleNav}>
-                                        <div className={`bar ${isNavOpen ? 'open' : ''}`}></div>
-                                        <div className={`bar ${isNavOpen ? 'open' : ''}`}></div>
-                                        <div className={`bar ${isNavOpen ? 'open' : ''}`}></div>
-                                    </div>
-                                    <a className="logo">VerveIN</a>
-                                    <div className="nav-logo">
-                                        <a href="#logo">
-                                            <img loading="lazy" src="/images/vervein.png" alt="VerveIN" />
-                                        </a>
-                                    </div>
-                                    <div className={`nav-links ${isNavOpen ? 'open' : ''}`}>
-                                        <i className="uil uil-times navCloseBtn" onClick={toggleNav}></i>
-                                        <ul>
-                                            <li><Link to="#about-us">About</Link></li>
-                                            <li><Link to="#portfolio-loc">Services</Link></li>
-                                            <li><Link to="/Book">Book session</Link></li>
-                                            <li><Link to="#FAQ">FAQs</Link></li>
-                                            <li><Link to="#">Contact us</Link></li>
-                                        </ul>
-                                    </div>
-                                    <div className="nav-search">
-                                        <input type="text" placeholder="All results..." />
-                                    </div>
-                                    <div className="nav-actions">
-                                       <button className='btn-signup' onClick={logout}>Sign Out</button>
-                                    </div>
-                                </div>
-                            </nav>
+                          <Header />
                         </div>
                     </div>
                 </div>
