@@ -1,0 +1,121 @@
+/* Base styling */
+.pricing-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease;
+  width: 100%;
+  max-width: 300px; /* Set a max-width for larger screens */
+  margin: 10px; /* Add some margin to separate cards */
+}
+
+.pricing-card:hover {
+  transform: translateY(-10px);
+}
+
+.pricing-title {
+  color: #333;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.pricing-price {
+  color: #5d5e5d;
+  font-size: 2.5em;
+  margin: 15px 0;
+}
+
+.pricing-price span {
+  font-size: 0.5em;
+}
+
+.pricing-features {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+.pricing-features li {
+  border-bottom: 1px solid #e0e0e0;
+  margin: 10px 0;
+  padding-bottom: 10px;
+}
+
+.pricing-button {
+  background: #070341;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1em;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  transition: background 0.3s ease;
+}
+
+.pricing-button:hover {
+  background: #ffffff;
+  color: black;
+}
+
+.total-price {
+  font-size: 1.2em;
+  margin: 20px 0 0;
+  color: #333;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .pricing-card {
+    width: 100%;
+    max-width: 100%;
+     /* Allow the card to use full width on smaller screens */
+  }
+
+  .pricing-title {
+    font-size: 1.3em; /* Adjust font size for smaller screens */
+  }
+
+  .pricing-price {
+    font-size: 2em; /* Adjust font size for smaller screens */
+  }
+
+  .pricing-features li {
+    font-size: 0.9em; /* Adjust font size for smaller screens */
+  }
+
+  .pricing-button {
+    font-size: 0.9em; /* Adjust font size for smaller screens */
+    padding: 8px 16px; /* Adjust padding for smaller screens */
+  }
+
+  .total-price {
+    font-size: 1em; /* Adjust font size for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .pricing-title {
+    font-size: 1.2em; /* Further adjust font size for very small screens */
+  }
+
+  .pricing-price {
+    font-size: 1.8em; /* Further adjust font size for very small screens */
+  }
+
+  .pricing-features li {
+    font-size: 0.8em; /* Further adjust font size for very small screens */
+  }
+
+  .pricing-button {
+    font-size: 0.8em; /* Further adjust font size for very small screens */
+    padding: 6px 12px; /* Further adjust padding for very small screens */
+  }
+
+  .total-price {
+    font-size: 0.9em; /* Further adjust font size for very small screens */
+  }
+}

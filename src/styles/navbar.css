@@ -1,13 +1,13 @@
 
   .navbar {
    
-    background-color: #edecec;
+    background-color: #ffffff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 15px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 880px;
+    max-width: 664px;
     margin: 0 auto;
     padding: 10px 20px;
     margin-top: 50px;
@@ -82,7 +82,7 @@ font-size: 25px;  }
   @media screen and ( max-width: 768px){
     .navbar{
         
-    background-color: #edecec;
+    background-color: #ffffff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 15px;
     display: flex;

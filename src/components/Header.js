@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Dropdown, Space } from 'antd';
-import '../styles/header.css';
+import { Dropdown, Space, Avatar, Badge } from 'antd';
 import { Link } from 'react-router-dom';
-import { SmileOutlined, DownOutlined } from '@ant-design/icons';
+import { DownOutlined, UserOutlined } from '@ant-design/icons';
 import { signOut, onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebase';
+import '../styles/header.css';
 
 const Header = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -76,10 +76,18 @@ const Header = () => {
         </ul>
       </div>
       {isAuthenticated && (
-        <Dropdown menu={{ items }} overlayClassName="nav-dropdown">
+        <Dropdown menu={{ items }}>
           <a>
             <Space>
-              {displayName}
+              
+                <Avatar
+                  style={{ backgroundColor: '#808080', verticalAlign: 'middle' }}
+                  icon={<UserOutlined />}
+                  size="Small"
+                >
+                  {displayName ? displayName[0].toUpperCase() : <UserOutlined />}
+                </Avatar>
+              
               <DownOutlined />
             </Space>
           </a>

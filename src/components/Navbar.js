@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Dropdown, Space } from 'antd';
-import '../styles/navbar.css';
+import { Dropdown, Space, Avatar, Badge } from 'antd';
 import { Link } from 'react-router-dom';
-import { SmileOutlined, DownOutlined } from '@ant-design/icons';
+import { DownOutlined, UserOutlined } from '@ant-design/icons';
 import { signOut, onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebase';
+import '../styles/navbar.css';
 
 const Navbar = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -29,7 +29,7 @@ const Navbar = () => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setIsAuthenticated(true);
-        setDisplayName(user.displayName || 'User'); // Set display name or a default value
+        setDisplayName(user.displayName || 'User');
       } else {
         setIsAuthenticated(false);
         setDisplayName('');
@@ -68,18 +68,26 @@ const Navbar = () => {
       <div className={`nav-links ${isNavOpen ? 'open' : ''}`}>
         <i className="uil uil-times navCloseBtn" onClick={toggleNav}></i>
         <ul>
-          <li><Link to="#about-us">About</Link></li>
-          <li><Link to="#portfolio-loc">Services</Link></li>
+         
           <li><Link to="/Home">Home</Link></li>
-          <li><Link to="#FAQ">FAQs</Link></li>
-          <li><Link to="#contact">Contact us</Link></li>
+          <li><Link to="/Content">Content Plans</Link></li>
+          <li><Link to="/Book">Book</Link></li>
+
+
+
         </ul>
       </div>
       {isAuthenticated && (
         <Dropdown menu={{ items }}>
           <a>
             <Space>
-              {displayName}
+            
+                <Avatar
+                  style={{ backgroundColor: '#808080', verticalAlign: 'middle' }}
+                  icon={<UserOutlined />}
+                  size="Large"
+                />
+              
               <DownOutlined />
             </Space>
           </a>

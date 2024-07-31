@@ -1,94 +1,85 @@
-.Form {
-  background-color: #9e9c9c;
-}
-
-.form-container {
-  max-width: 800px;
-  margin: 0 auto;
+.app {
+  background: #f5f5f5;
+font-family: Georgia, 'Times New Roman', Times, serif;
+  min-height: 100vh;
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin-top: 20px;
 }
 
-.pricing-options {
+.app-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.pricing-container {
   display: flex;
-  justify-content: space-between;
+  gap: 20px;
+  justify-content: center;
+}
+.subscription-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.plans {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .pricing-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+
+pricing-info {
+  max-width: 800px;
+  margin: 0 auto 40px;
+  text-align: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.pricing-info h2 {
+  color: #333;
   margin-bottom: 20px;
 }
 
-.pricing-card {
-  flex: 1;
-  padding: 20px;
-  margin: 0 10px;
-  text-align: center;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background-color: #cbcbcb;
+.pricing-info p {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 20px;
 }
 
-.pricing-card h3 {
+.pricing-info ul {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.pricing-info li {
   margin-bottom: 10px;
-  font-size: 18px;
-  color: #0b157d;
 }
 
-.pricing-card p {
-  margin: 5px 0;
-  font-size: 16px;
-  color: #000000;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-}
-
-.form-group {
-  margin-bottom: 15px;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-
-.form-group input,
-.form-group select {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.btnsub {
-  padding: 10px 15px;
-  border: none;
-  border-radius: 4px;
-  background-color: #007bff;
-  color: white;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.btnsub:hover {
-  background-color: #0056b3;
-}
-
-
-/* Responsive Design */
-@media (max-width: 600px) {
-  .pricing-options {
-    flex-direction: column;
+@media (max-width: 768px) {
+  .pricing-info {
+    padding: 15px;
   }
-
-  .pricing-card {
-    margin-bottom: 10px;
+  
+  .pricing-info h2 {
+    font-size: 1.4em;
   }
-
-  .btnsub {
-          font-size: 15px;
-          width: 100px;
-        }
+  
+  .pricing-info p, .pricing-info li {
+    font-size: 0.9em;
+  }
 }
