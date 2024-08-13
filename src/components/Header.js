@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Dropdown, Space, Avatar, Badge } from 'antd';
+import { Dropdown, Space, Avatar } from 'antd';
 import { Link } from 'react-router-dom';
 import { DownOutlined, UserOutlined } from '@ant-design/icons';
 import { signOut, onAuthStateChanged } from 'firebase/auth';
@@ -29,7 +29,7 @@ const Header = () => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setIsAuthenticated(true);
-        setDisplayName(user.displayName || 'User'); // Set display name or a default value
+        setDisplayName(user.displayName || 'User');
       } else {
         setIsAuthenticated(false);
         setDisplayName('');
@@ -68,26 +68,21 @@ const Header = () => {
       <div className={`nav-links ${isNavOpen ? 'open' : ''}`}>
         <i className="uil uil-times navCloseBtn" onClick={toggleNav}></i>
         <ul>
-          <li><Link to="#about-us">About</Link></li>
-          <li><Link to="#portfolio-loc">Services</Link></li>
-          <li><Link to="/Book">Book Sessions</Link></li>
-          <li><Link to="#FAQ">FAQs</Link></li>
-          <li><Link to="#contact">Contact us</Link></li>
+          <li><Link to="/Home">Home</Link></li>
+          <li><Link to="/Content">Book</Link></li>
+          <li><Link to="/Book">Subscribe</Link></li>
+          <li><Link to="/Partners">Delivery Partner</Link></li>
         </ul>
       </div>
       {isAuthenticated && (
         <Dropdown menu={{ items }}>
           <a>
             <Space>
-              
-                <Avatar
-                  style={{ backgroundColor: '#808080', verticalAlign: 'middle' }}
-                  icon={<UserOutlined />}
-                  size="Small"
-                >
-                  {displayName ? displayName[0].toUpperCase() : <UserOutlined />}
-                </Avatar>
-              
+              <Avatar
+                style={{ backgroundColor: '#808080', verticalAlign: 'middle' }}
+                icon={<UserOutlined />}
+                size="Large"
+              />
               <DownOutlined />
             </Space>
           </a>

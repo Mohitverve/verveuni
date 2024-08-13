@@ -1,0 +1,109 @@
+.delivery-partner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px;
+    background-color: #ffffff;
+  }
+  
+  .delivery-partner-card {
+    max-width: 800px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+  }
+  
+  .title {
+    text-align: center;
+    color: #1a1a1a;
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  
+  .coming-soon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .coming-soon-icon {
+    font-size: 20px;
+    color: #666;
+    margin-right: 8px;
+  }
+  
+  .coming-soon {
+    text-align: center;
+    color: #666;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+  .collapse-container .ant-collapse-header {
+    background-color: #f8f8f8;
+    font-size: 18px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    padding: 16px 20px;
+    border-radius: 8px;
+  }
+  
+  .collapse-container .ant-collapse-header .anticon {
+    margin-right: 12px;
+    font-size: 20px;
+    vertical-align: middle;
+  }
+  
+  .collapse-container .ant-collapse-content-box {
+    background-color: #fff;
+    padding: 24px;
+  }
+  
+  @media (max-width: 768px) {
+    .delivery-partner-container {
+      padding: 40px 16px;
+    }
+  
+    .delivery-partner-card {
+      padding: 24px;
+    }
+  
+    .title {
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+  
+    .coming-soon-container {
+      flex-direction: column;
+      margin-top: 16px;
+    }
+  
+    .coming-soon-icon {
+      font-size: 18px;
+      margin-right: 6px;
+      margin-bottom: 4px;
+    }
+  
+    .coming-soon {
+      font-size: 14px;
+    }
+  
+    .collapse-container .ant-collapse-header {
+      font-size: 16px;
+      padding: 12px 16px;
+    }
+  
+    .collapse-container .ant-collapse-header .anticon {
+      margin-right: 10px;
+      font-size: 18px;
+    }
+  
+    .collapse-container .ant-collapse-content-box {
+      padding: 16px;
+    }
+  }

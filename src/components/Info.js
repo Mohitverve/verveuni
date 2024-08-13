@@ -1,16 +1,12 @@
+import { Form, Input, Button, Select } from 'antd';
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { auth, db } from './firebase';
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
-import FormControl from '@mui/material/FormControl';
-import InputLabel from '@mui/material/InputLabel';
-import Select from '@mui/material/Select';
-import MenuItem from '@mui/material/MenuItem';
-import '../styles/info.css';
 
-export default function Info() {
+const { Option } = Select;
+
+const Info = ({ user }) => {
   const [name, setName] = useState('');
   const [interestLevel, setInterestLevel] = useState('');
   const navigate = useNavigate();
@@ -39,14 +35,13 @@ export default function Info() {
     checkUserInfo();
   }, [navigate]);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (values) => {
     const user = auth.currentUser;
     if (user) {
       try {
         await updateDoc(doc(db, 'users', user.uid), {
-          name,
-          interestLevel,
+          name: values.name,
+          interestLevel: values.interestLevel,
           additionalInfoCompleted: true,
         });
 
@@ -62,60 +57,82 @@ export default function Info() {
   }
 
   return (
-    <div className="additional-info-page">
-      <h1>Are you interested in learning with VR?</h1>
-      <form onSubmit={handleSubmit} className="additional-info-form">
-        <TextField
-          id="outlined-basic"
+    <div style={styles.container}>
+      <h2 style={styles.heading}>Are you interested in learning with VR?</h2>
+      <Form
+        name="vr_interest"
+        onFinish={handleSubmit}  // Changed from onFinish to handleSubmit
+        style={styles.form}
+        layout="vertical"
+      >
+        <Form.Item
+          name="name"
           label="Name"
-          variant="outlined"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-          fullWidth
-          margin="normal"
-          InputProps={{
-            style: { color: 'white' },
-          }}
-          InputLabelProps={{
-            style: { color: 'white' },
-          }}
-        />
-        <FormControl
-          variant="outlined"
-          fullWidth
-          margin="normal"
-          required
-          sx={{
-            '& .MuiOutlinedInput-root': {
-              color: 'white',
-            },
-            '& .MuiInputLabel-root': {
-              color: 'white',
-            },
-          }}
+          rules={[{ required: true, message: 'Please enter your name!' }]}
         >
-          <InputLabel id="interest-label">Interest Level</InputLabel>
-          <Select
-            labelId="interest-label"
-            id="interest-level"
-            value={interestLevel}
-            onChange={(e) => setInterestLevel(e.target.value)}
-            label="Interest Level"
-            sx={{ color: 'white' }}
-          >
-            <MenuItem value="">
-              <em>Select...</em>
-            </MenuItem>
-            <MenuItem value="Low">Low</MenuItem>
-            <MenuItem value="Good enough">Good enough</MenuItem>
-            <MenuItem value="Very High">Very High</MenuItem>
+          <Input placeholder="Name" style={styles.input} onChange={(e) => setName(e.target.value)} />
+        </Form.Item>
+
+        <Form.Item
+          name="interestLevel"
+          label="Interest Level"
+          rules={[{ required: true, message: 'Please select your interest level!' }]}
+        >
+          <Select placeholder="Select your interest level" style={styles.input} onChange={(value) => setInterestLevel(value)}>
+            <Option value="high">High</Option>
+            <Option value="medium">Medium</Option>
+            <Option value="low">Low</Option>
           </Select>
-        </FormControl>
-        <Button variant="contained" color="primary" type="submit" fullWidth>
-          Submit
-        </Button>
-      </form>
+        </Form.Item>
+
+        <Form.Item>
+          <Button type="primary" htmlType="submit" style={styles.button}>
+            Submit
+          </Button>
+        </Form.Item>
+      </Form>
     </div>
   );
-}
+};
+
+const styles = {
+  container: {
+    backgroundImage: 'url("/images/bgv.jpg")',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    padding: '40px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '100vh',
+  },
+  heading: {
+    marginBottom: '20px',
+    fontSize: '24px',
+    color: '#333',
+    fontFamily: 'Georgia, serif',
+  
+  },
+  form: {
+    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+    padding: '20px',
+    borderRadius: '8px',
+    boxShadow: '0px 0px 20px rgba(0, 0, 0, 0.1)',
+    width: '300px',
+  },
+  input: {
+    borderRadius: '8px',
+    backgroundColor: '#e6f7ff',
+    borderColor: '#1890ff',
+    fontFamily: 'Georgia, serif',
+  },
+  button: {
+    width: '100%',
+    backgroundColor: '#1890ff',
+    borderColor: '#1890ff',
+    borderRadius: '8px',
+  },
+};
+
+export default Info;

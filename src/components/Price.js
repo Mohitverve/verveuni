@@ -1,92 +1,82 @@
-// src/components/Price.js
-import React from 'react';
-import { Paper, Typography, List, ListItem, ListItemIcon, ListItemText, Button } from '@mui/material';
-import { styled } from '@mui/system';
-import VrpanoIcon from '@mui/icons-material/Vrpano';
-import MenuBookIcon from '@mui/icons-material/MenuBook';
-import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
+import React, { useState } from 'react';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardActions from '@mui/material/CardActions';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import TextField from '@mui/material/TextField';
+import Box from '@mui/material/Box';
+import { styled } from '@mui/material/styles';
 
-const StyledPaper = styled(Paper)(({ theme }) => ({
-  padding: theme.spacing(3),
-  textAlign: 'center',
-  color: theme.palette.text.primary,
-  background: 'white',
+const StyledCard = styled(Card)(({ theme }) => ({
   height: '100%',
   display: 'flex',
   flexDirection: 'column',
-  justifyContent: 'space-between',
-  boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.1)',
-  borderRadius: '12px',
-  fontFamily: 'Georgia, serif', // Set the font family to Georgia
-  transition: 'transform 0.2s, box-shadow 0.2s', // Add transition for smoothness
+  transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
   '&:hover': {
-    transform: 'translateY(-5px)', // Slightly lift the paper on hover
-    boxShadow: '0px 8px 30px rgba(0, 0, 0, 0.2)', // Increase shadow on hover
+    transform: 'translateY(-10px)',
+    boxShadow: theme.shadows[10],
   },
 }));
 
-const FeatureList = styled(List)({
-  padding: 0,
-  margin: '20px 0',
-  textAlign: 'left',
-  fontFamily: 'Georgia, serif', // Set the font family to Georgia
-});
+const Price = ({ title, description, price, features }) => {
+  const [students, setStudents] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(null);
 
-const FeatureItem = styled(ListItem)(({ theme }) => ({
-  transition: 'background 0.2s, color 0.2s', // Add transition for smoothness
-  '&:hover': {
-    background: theme.palette.action.hover, // Background color on hover
-    color: theme.palette.primary.main, // Text color on hover
-  },
-}));
-
-const CalcButton = styled(Button)(({ theme }) => ({
-  marginTop: 'auto',
-  background: '#000000',
-  color: 'white',
-  '&:hover': {
-    background: '#333333', // Darker background on hover
-  },
-  fontFamily: 'Georgia, serif', // Set the font family to Georgia
-}));
-
-const Price = ({ title, features, buttonText, onCalculate }) => {
-  const getIcon = (feature) => {
-    switch (feature.toLowerCase()) {
-      case 'vr headsets':
-        return <VrpanoIcon />;
-      case 'content library':
-        return <MenuBookIcon />;
-      case 'mobile devices':
-        return <PhoneAndroidIcon />;
-      default:
-        return null;
-    }
+  const handleCalculate = () => {
+    const pricePerStudent = parseFloat(price.replace(/[^\d]/g, ''));
+    setTotalPrice(pricePerStudent * students);
   };
 
   return (
-    <StyledPaper elevation={0}>
-      <Typography variant="h4" component="h3" gutterBottom style={{ fontFamily: 'Georgia, serif' }}>
-        {title}
-      </Typography>
-      <FeatureList>
-        {features.map((feature, idx) => (
-          <FeatureItem key={idx} dense>
-            <ListItemIcon>
-              {getIcon(feature)}
-            </ListItemIcon>
-            <ListItemText primary={feature} />
-          </FeatureItem>
-        ))}
-      </FeatureList>
-      <CalcButton 
-        variant="contained" 
-        onClick={onCalculate}
-        fullWidth
-      >
-        {buttonText}
-      </CalcButton>
-    </StyledPaper>
+    <StyledCard>
+      <CardContent sx={{ flexGrow: 1 }}>
+        <Typography variant="h4" component="h2" gutterBottom>
+          {title}
+        </Typography>
+        <Typography variant="h6" color="text.secondary" gutterBottom>
+          {price}
+        </Typography>
+        <Typography variant="body1" paragraph>
+          {description}
+        </Typography>
+        <List>
+          {features.map((feature, index) => (
+            <ListItem key={index} disablePadding>
+              <ListItemIcon>
+                <CheckCircleOutlineIcon color="primary" />
+              </ListItemIcon>
+              <ListItemText primary={feature} />
+            </ListItem>
+          ))}
+        </List>
+      </CardContent>
+      <CardActions>
+        <TextField
+          label="Number of Students"
+          type="number"
+          value={students}
+          onChange={(e) => setStudents(e.target.value)}
+          fullWidth
+          margin="normal"
+        />
+        <Button fullWidth variant="contained" color="primary" onClick={handleCalculate}>
+          Calculate
+        </Button>
+      </CardActions>
+      {totalPrice !== null && (
+        <Box p={2}>
+          <Typography variant="h6" color="text.secondary">
+            Total Price: ₹{totalPrice}
+          </Typography>
+        </Box>
+      )}
+    </StyledCard>
   );
 };
 

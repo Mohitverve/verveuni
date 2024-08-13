@@ -9,6 +9,7 @@
   body {
     width: 100%;
     height: 100%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     
   }
   /* Global Styles */
@@ -32,7 +33,7 @@
   a {
     color: var(--main-color);
     font-size: var(--paragraph);
-    font-family: var(--main-font);
+    font-family: Georgia, 'Times New Roman', Times, serif;
     text-decoration: none;
   }
   section {
@@ -109,7 +110,16 @@
     border-radius:15px;
   
   }
+
+  .bread{
+    background-color: rgb(255, 254, 254);
+    margin-top: 50px;
+
+  }
   
+  @media screen {
+    
+  }
   .nav-container {
     background-color: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -299,6 +309,8 @@
     font-family: var(--main-font);
     color: #333;
   }
+
+
   
   /* services */
   .portfolio {
@@ -327,7 +339,6 @@
     position: relative;
     height: 30vw;
     width: 30vw;
-    background-color: #3d3e42;
     border-radius: 20px;
     overflow: hidden;
     align-items: center;
@@ -353,7 +364,6 @@
     gap: 2.5vh;
     height: 30vw;
     width: 30vw;
-    background-color: #34353ba2;
     align-items: center;
     justify-content: center;
     padding: 24px;
@@ -409,6 +419,7 @@
     font-size: 32px;
     color: #333;
     margin-bottom: 40px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
   }
   
   .flow-steps {
@@ -434,14 +445,19 @@
   
   .step-icon {
     font-size: 48px;
-    color: #007bff;
+    color: #000000;
     margin-bottom: 20px;
     animation: icon-animation 1s infinite;
+  }
+
+  .step-icon:hover{
+    color: white;
   }
   
   .step-title {
     font-size: 20px;
     color: #333;
+    font-family: Georgia, 'Times New Roman', Times, serif
   }
   
   @keyframes icon-animation {
@@ -780,6 +796,10 @@
         border-radius: 1.5rem 1.5rem 0 0;
         transition: 1sec;
     }
+    
+    .bread{
+      font-size: 24px;
+    }
     .hero-left h1 {
       font-size: 28px;
       line-height: 36px;
@@ -986,7 +1006,7 @@
       font-size: 7px;
     }
     a {
-      font-size: 7px;
+      font-size: 10px;
     }
     .contact-form textarea {
       height: 70px;

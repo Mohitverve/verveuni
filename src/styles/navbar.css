@@ -10,7 +10,7 @@
     max-width: 664px;
     margin: 0 auto;
     padding: 10px 20px;
-    margin-top: 50px;
+    
   }
   
   .nav-logo a img {
@@ -93,4 +93,9 @@ font-size: 25px;  }
     padding: 10px 20px;
     margin-top: 50px;
     }
+  }
+
+  .active {
+    font-weight: bold;
+    color: rgb(32, 58, 138); /* Change the color to your preference */
   }

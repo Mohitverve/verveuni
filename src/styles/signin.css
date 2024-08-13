@@ -1,0 +1,16 @@
+
+
+.Login{
+    max-width: 80px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+#Name{
+    max-width: 80px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    color: aqua;
+}

@@ -1,0 +1,563 @@
+.portfolio-card {
+    position: relative;
+    height: 30vw;
+    width: 30vw;
+    border-radius: 20px;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    gap: 2vh;
+    transition: all ease 0.5s;
+}
+
+.portfolio-card img {
+    position: relative;
+    height: 30vw;
+    width: 30vw;
+    object-fit: cover;
+}
+
+.portfolio-card .overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    width: 80%;
+    padding: 20px;
+    background-color: rgba(200, 200, 200, 0.9); /* Greyish background */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity ease 0.5s;
+}
+
+.portfolio-card .overlay h3 {
+    color: #333;
+    font-size: 21px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.portfolio-card .overlay p {
+    color: #333;
+    font-size: 16px;
+    text-align: center;
+}
+
+.portfolio-card:hover .overlay {
+    opacity: 1;
+}
+
+@media screen and ( max-width: 768px){
+    .nav_menu{
+        position: fixed;
+        bottom: -100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--body-color);
+        padding: 2rem 1.5rem 4rem;
+        box-shadow: 0 -1px 4px rgba(0,0,0, .15);
+        border-radius: 1.5rem 1.5rem 0 0;
+        transition: 1sec;
+    }
+    
+    .bread{
+      font-size: 24px;
+    }
+    .hero-left h1 {
+      font-size: 28px;
+      line-height: 36px;
+  }
+  .hero-left p {
+    font-size: 14px;
+   }
+    section {
+      padding: 45px 0px;
+    }
+   .about-right h2 {
+      font-size: 11px;
+    }
+    .about-right h3 {
+      font-size: 24px;
+    }
+    .about-right p {
+      font-size: 10px;
+    }
+    .about-right span {
+      font-size: 8px;
+    }
+    a.button {
+      padding: 5px 13px;
+      font-size: 10px;
+    }
+    .about-left, .about-right {
+      gap: 8px;
+    }
+  .portfolio {
+    padding: 30px 100px;
+  }
+  .portfolio h1 {
+    font-size: 43px;
+    font-weight: 550;
+  }
+  .portfolio-cards {
+      margin-top: 45px;
+  }
+
+.portfolio .overlay{
+  height: 80%;
+  width: 80%;
+}
+  .flow-title {
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
+  .step-title {
+    font-size: 13px;
+  }
+  .step-icon {
+    font-size: 39px;
+    margin-bottom: 15px;
+  }
+  .faq-header {
+    display: flex;
+    flex-wrap:nowrap;
+    margin-left: 18px;
+  }
+  .question-toggle {
+    padding: 8px;
+    font-size: 7px;
+  }
+  .faq-header p {
+    font-size: 0.6rem;
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .faq-container h3 {
+    margin-left: 18px;
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+  }
+  .faq-header h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+  }
+  .faq-header h2 {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .contact-section{
+    padding:30px;
+  }
+  /* .contact-info {
+    padding-right: 0;
+  } */
+  .contact-form {
+    padding: 20px;
+  }
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 11px;
+  }
+  .contact-form button {
+    font-size: 14px;
+    padding: 12px;
+  }
+  .contact-info h2 {
+    font-size: 20px;
+    font-weight: 500;
+  }
+  .contact-info p {
+    font-size: 10.5px;
+    margin-bottom: 25px;
+  }
+  .contact-info h3 {
+    font-size: 23px;
+    font-weight: 550;
+  }
+  .contact-form textarea {
+    height: 85px;
+  }
+  .detail p {
+    font-size: 13px;
+  }
+  .detail h4 {
+    font-size: 15px;
+  }
+  footer .container{
+    margin-left:30px;
+  }
+  footer p {
+    font-size: 11px;
+  }
+  a {
+    font-size: 11px;
+    }
+  }
+  
+  @media (max-width: 420px){
+    .nav-container{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      gap: 30px;
+    }
+  }
+  @media screen and ( max-width: 1290px){
+  .about-left, .about-right,.hero-left, .hero-right{
+    width:100%;
+  }
+  
+  }
+  
+  @media (min-width:768px) and (max-width:1140px){
+    .faq-header p {
+      font-size: 0.65rem;
+      line-height: 1;
+    }
+  }
+  @media screen and (max-width:1020px){
+    div.row{
+      flex-wrap:wrap;
+    }
+  }
+  @media screen and (max-width:1180px){
+    .nav-search input{
+      display:none;
+    }
+  }
+  @media (min-width:768px) and (max-width: 930px){
+    .portfolio-card .overlay h3 {
+      font-size: 16.5px;
+  }
+  .portfolio-card .overlay p {
+    font-size: 13px;
+  }
+  }
+  @media screen and (max-width: 700px) {
+  .home {
+    height: 80vh;}
+    div.video {
+      padding: 10px;
+    }
+    .video-card .card-details {
+      padding: 10px 0px;
+      font-size: 16px;
+    }
+    .video-card{
+      width: 75%;
+    }
+  }
+  @media screen and (max-width: 570px) {
+    .contact-info h3 {
+      font-size: 18px;
+  }
+  .faq-header {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .faq-header h2 {
+    margin-bottom: 0.5rem;
+  }
+  .portfolio-card .overlay h3 {
+    font-size: 8px;
+  }
+  .portfolio-card .overlay p {
+    font-size: 6px;
+  }
+  }
+  
+  @media screen and (max-width: 470px) {
+    footer .container{
+      margin-left:18px;
+    }
+    footer p {
+      font-size: 7px;
+    }
+    a {
+      font-size: 15px;
+    }
+    .contact-form textarea {
+      height: 70px;
+    }
+    .portfolio-cards {
+      margin-top: 31px;
+      gap:0.75vh;
+  }
+  .question-toggle {
+    padding: 7px;
+    font-size: 6px;
+  }
+  .portfolio h1 {
+    font-size: 26px;
+  }
+  }
+  @media screen and (max-width: 1290px){
+    .nav-links ul li a {
+      color: black;
+      font-weight: 500;
+      font-size: 12px;
+    }
+  }
+  @media screen and (max-width: 1177px) {
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      gap:55px;
+  }
+    .nav-container .navOpenBtn,
+  .nav-container .navCloseBtn {
+      display: block;
+      color: #000000;
+      font-size: 30px;
+      cursor: pointer;
+    }
+    .nav-links {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      height: 100%;
+      max-width: 280px;
+      width: 100%;
+      padding-top: 100px;
+      row-gap: 30px;
+      flex-direction: column;
+      background-color: #f4f4f4;
+      /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
+      transition: all 0.4s ease;
+      z-index: 100;
+    }
+  .nav-links ul li a {
+    color: black;
+    font-weight: 700;
+    font-size: 15px;
+  }
+    .nav-container .navCloseBtn {
+      position: absolute;
+      top: 67px;
+      right: 20px;
+    }
+    .nav-search{
+      top: calc(100% + 10px);
+      max-width: calc(100% - 20px);
+      right: 50%;
+      transform: translateX(50%);
+      margin-left: -80px;
+    }
+    .nav-links ul {
+      display: flex;
+      flex-direction: column;
+  }
+    .nav {
+      padding: 15px 20px;
+    }
+  }
+  @media screen and (max-width: 647px){
+    /* .btn-signup{
+      display:none;
+    } */
+    .btn-login{
+      display:none;
+    }
+    .nav-search{
+      font-size:10px;
+    }
+    /* .nav-logo{
+      display:none;
+    } */
+    .logo{
+      display:block;
+      font-size:20px;
+    }
+    .nav-search input {
+      font-size: 8px;
+      width: 100px;
+  }
+  .nav-container {
+    padding: 6px 35px;
+    padding-left: 13px;
+  }
+  .nav-search{
+    margin-left: -50px;
+  }
+  .hero-section {
+    padding: 25px 0px;
+  }
+  }
+  @media screen and (min-width: 1178px) {
+    .nav-container .navOpenBtn,
+    .nav-container .navCloseBtn {
+      display: none;
+    }
+  }
+  
+  
+  @media screen and (max-width: 640px) { 
+    .footer-top p{
+    font-size: 15px;
+  }
+    
+  }
+  .hamburger {
+    display: none;
+    cursor: pointer;
+  }
+  
+  .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 5px 0;
+    transition: 0.4s;
+  }
+  
+  @media screen and (max-width: 1177px) {
+    .hamburger {
+      display: block;
+    }
+  
+    .nav-links {
+      position: fixed;
+      left: -100%;
+      top: 70px;
+      gap: 0;
+      flex-direction: column;
+      background-color: #fff;
+      width: 100%;
+      text-align: center;
+      transition: 0.3s;
+    }
+  
+    .nav-links.open {
+      left: 0;
+    }
+  
+    .nav-links ul {
+      flex-direction: column;
+    }
+  
+    .nav-links li {
+      margin: 16px 0;
+    }
+  
+    .bar.open:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+  
+    .bar.open:nth-child(2) {
+      opacity: 0;
+    }
+  
+    .bar.open:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+  }
+
+  .hero-section {
+    width: 100%;
+    padding: 60px 0px;
+  }
+  
+  .hero-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  
+  .hero-section .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .hero-left,
+  .hero-right {
+    width: 48%; /* Adjust as needed */
+  }
+  
+  .hero-left {
+    padding-right: 20px;
+  }
+  
+  .carousel-container {
+    width: 100%;
+    position: relative;
+  }
+  
+  .carousel {
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .carousel-item {
+    width: 100%;
+    display: none;
+  }
+  
+  .carousel-item.active {
+    display: block;
+  }
+  
+  .carousel-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .hero-section .row {
+      flex-direction: column;
+    }
+  
+    .hero-left,
+    .hero-right {
+      width: 100%;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+  }
+
+  .faq-question {
+    margin-bottom: 15px;
+    border: 1px solid #d7d7d7;
+    border-radius: 5px;
+    overflow: hidden;
+  }d
+  .question-toggle {
+    background-color: #9fb9de;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .toggle-icon {
+    transition: transform 0.3s ease;
+  }
+  
+  .toggle-icon.rotate {
+    transform: rotate(180deg);
+  }
+  
+  .answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    padding: 0 15px;
+  }
+  
+  .answer.open {
+    max-height: 1000px; /* Adjust this value as needed */
+    padding: 15px;
+  }

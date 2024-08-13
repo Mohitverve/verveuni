@@ -1,13 +1,10 @@
 import React from 'react';
 import { GoogleAuthProvider, GithubAuthProvider, signInWithPopup } from 'firebase/auth';
-import { auth, db } from './firebase';
+import { auth, db, googleProvider, githubProvider } from './firebase';
 import { doc, setDoc, getDoc } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
 import GitHubIcon from '@mui/icons-material/GitHub';
-
-
 import GoogleIcon from '@mui/icons-material/Google';
-
 import '../styles/register.css';
 
 export default function Register() {
@@ -39,8 +36,8 @@ export default function Register() {
     }
   }
 
-  const googleLogin = () => handleLogin(new GoogleAuthProvider());
-  const githubLogin = () => handleLogin(new GithubAuthProvider());
+  const googleLogin = () => handleLogin(googleProvider);
+  const githubLogin = () => handleLogin(githubProvider);
 
   return (
     <div className='register'>
